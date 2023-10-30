@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CS2012 - First Lab</title>
+
+  <style>
+    body {
+      display: flex;
+      background-color: #ffffff;
+      float: left;
+    }
+
+    .emph {
+   font-style: italic;
+   color: GoldenRod;
+    }
+
+    h1, h2, h3 {
+  padding-left: 4em; 
+  padding-right: 4em;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #EEEEEE;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+ 
+li {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+ 
+li:hover {
+    background-color: #ccc;
+}
+
+table {
+  width: 80%; 
+  margin: 0 auto; 
+}
+
+    .right-side {
+      flex: 2;
+      padding: 10px;
+      padding-top: 55px;
+    }
+
+    h3 {
+      background-color: #EEEEEE;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ccc;
+    }
+
+    .ucc-logo {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .intro-text {
+      line-height: 1.5;
+    }
+
+    .row {
+      display:flex
+    }
+
+    .img {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+
+    .img_title {
+      justify-content: center;
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+<div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#class_timetable">Class Timetable</a></li>
+    <li><a href="#lab_imetable">Lab Timetable</a></li>
+    <li><a href="#home_photo">Home Photo</a></li>
+    <li><a href="#other_photo">Other Photo</a></li>
+  </ul>
+</div>
+  <div class="right-side">
+    <h3><a id=home>Home</a></h3>
+    <div style="display: flex;">
+      <p class="intro-text">
+       <a href="https://www.ucc.ie/en/"> <img class="ucc-logo" src="https://www.ucc.ie/en/media/2017siteassets/images/ucc_logo_irish.svg" alt="ucc logo" width="304" height="228"> </a>
+       Hello, everyone! My name is <span class="emph">Zhang Yuanping</span> and I come from the vibrant city of Beijing, China.
+       In addition to my academic pursuits, I have a deep passion for PC and console gaming. Hello, everyone! My name is Zhang Yuanping, and I come from the vibrant city of Beijing, China. In addition to my academic pursuits, I have a deep passion for PC and console gaming.
+
+      </p>
+    </div>
+    <h3><a id=class_timetable></a>Class Timetable</h3>
+    <table border="1" cellpadding="10">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Titie</th>
+          <th>Time</th>
+          <th>Type of Activity</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href ="https://ucc-ie-public.courseleaf.com/modules/?details&srcdb=2023&code=CS6101">CS6101</a></td>
+          <td>Web Development for DIgital Media</td>
+          <td>Wed13:00</td>
+          <td>Lecture</td>
+          <td>G09</td>
+        </tr>
+        <tr>
+          <td><a href ="https://ucc-ie-public.courseleaf.com/modules/?details&srcdb=2023&code=CS6100">CS6100</a></td>
+          <td>Authoring</td>
+          <td>Mon12:00</td>
+          <td>Lecture</td>
+          <td>G02</td>
+        </tr>
+        <tr>
+          <td><a href ="https://ucc-ie-public.courseleaf.com/modules/?details&srcdb=2023&code=CS6102">CS6102</a></td>
+            <td>Graphic for Interactive Media</td>
+            <td>Fri13:00</td>
+            <td>Lecture</td>
+            <td>G13</td>
+          </tr>
+        <tr>
+          <td><a href ="https://ucc-ie-public.courseleaf.com/modules/?details&srcdb=2023&code=CS6103">CS6103</a></td>
+          <td>Audio and Sound Engineering</td>
+          <td>Mon16:00</td>
+          <td>Lecture</td>
+          <td>G08</td>
+        </tr>
+        <tr>
+          <td><a href ="https://ucc-ie-public.courseleaf.com/modules/?details&srcdb=2023&code=CS6104">CS6104</a></td>
+          <td>Digital Video Capture and Packing</td>
+          <td>Wed17:00</td>
+          <td>Lecture</td>
+          <td>G08</td>
+        </tr>
+        <tr>
+          <td><a href ="https://ucc-ie-public.courseleaf.com/modules/?details&srcdb=2023&code=CS6111">CS6111</a></td>
+          <td>3D Graphics and Modelling</td>
+          <td>Tue16:00</td>
+          <td>Lecture</td>
+          <td>G18</td>
+        </tr>
+
+      </tbody>
+    </table>
+    <h3><a id=lab_imetable></a>Lab Timetable</h3>
+    <table border="1" cellpadding="10">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Titie</th>
+          <th>Time</th>
+          <th>Type of Activity</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href ="https://ucc-ie-public.courseleaf.com/modules/?details&srcdb=2023&code=CS6101">CS6101</a></td>
+          <td>Web Development for DIgital Media</td>
+          <td>Thur15:00</td>
+          <td>Lab</td>
+          <td>G21</td>
+        </tr>
+        <tr>
+          <td><a href ="https://ucc-ie-public.courseleaf.com/modules/?details&srcdb=2023&code=CS6100">CS6100</a></td>
+          <td>Authoring</td>
+          <td>Web16:00</td>
+          <td>Lab</td>
+          <td>Lab1.15</td>
+        </tr>
+        <tr>
+          <td><a href ="https://ucc-ie-public.courseleaf.com/modules/?details&srcdb=2023&code=CS6102">CS6102</a></td>
+            <td>Graphic for Interactive Media</td>
+            <td>Fri15:00</td>
+            <td>Lab</td>
+            <td>Lab1.15</td>
+          </tr>
+        <tr>
+          <td><a href ="https://ucc-ie-public.courseleaf.com/modules/?details&srcdb=2023&code=CS6103">CS6103</a></td>
+          <td>Audio and Sound Engineering</td>
+          <td>Tue14:00</td>
+          <td>Lab</td>
+          <td>Lab1.15</td>
+        </tr>
+        <tr>
+          <td><a href ="https://ucc-ie-public.courseleaf.com/modules/?details&srcdb=2023&code=CS6104">CS6104</a></td>
+          <td>Digital Video Capture and Packing</td>
+          <td>Thur16:00</td>
+          <td>Lab</td>
+          <td>Lab1.15</td>
+        </tr>
+        <tr>
+          <td><a href ="https://ucc-ie-public.courseleaf.com/modules/?details&srcdb=2023&code=CS6111">CS6111</a></td>
+          <td>3D Graphics and Modelling</td>
+          <td>Mon14:00</td>
+          <td>Lab</td>
+          <td>Lab1.15</td>
+        </tr>
+
+      </tbody>
+    </table>
+    <h3><a id=home_photo></a>Home Photo</h3>
+    <div class="row">
+      <figure>
+      <img src="./images/zijincheng.jpg"  alt="zijincheng" width="304" height="228" class="img">
+      <figcaption class="img_title">zijincheng</figcaption>
+      </figure>
+      <figure>
+      <img src="./images/tiananmen.jpg"  alt="tiananmen" width="304" height="228" class="img">
+      <figcaption class="img_title">tiananmen</figcaption>
+      </figure>
+      <figure>
+      <img src="./images/tiananmen (2).jpg"  alt="tiananmen (2)" width="304" height="228" class="img">
+      <figcaption class="img_title">tiananmen (2)</figcaption>
+      </figure>
+      <figure>
+      <img src="./images/tiantan.jpg"  alt="tiantan" width="304" height="228" class="img">
+      <figcaption class="img_title">tiantan</figcaption>
+      </figure>
+    </div>
+
+
+    <h3><a id=other_photo></a>Other Photo</h3>
+    <div class="row">
+      <figure>
+      <img src="./images/cat.jpg"  alt="cat" width="304" height="228" class="img">
+      <figcaption class="img_title">cat</figcaption>
+      </figure>
+      <figure>
+      <img src="./images/chengbao.jpg" alt="chengbao" width="304" height="228" class="img">
+      <figcaption class="img_title">chengbao</figcaption>
+      </figure>
+      <figure>
+      <img src="./images/OIP.jpg" alt="OIP (2)" width="304" height="228" class="img">
+      <figcaption class="img_title">OIP</figcaption>
+      </figure>
+      <figure>
+      <img src="./images/sea.jpg" alt="sea" width="304" height="228" class="img">
+      <figcaption class="img_title">sea</figcaption>
+      </figure>
+    </div>
+
+
+  </div>
+</body>
+</html>
