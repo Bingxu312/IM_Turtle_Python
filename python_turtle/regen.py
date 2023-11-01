@@ -2,6 +2,8 @@ from turtle import *
 import tkinter as tk
 from tkinter import Label, Entry, Button, OptionMenu
 
+import figureFunc
+
 turtle = Turtle()
 # create Tkinter interface
 window = tk.Tk()
@@ -17,26 +19,15 @@ pen.width(3)
 screen = Screen()
 screen.bgcolor("blue")
 
-def circle():
-    a = int(entry_a.get())
-    b = int(entry_b.get())
-    t.circle(a)
-    t.hideturtle()
 
-def cube():
-    a = int(entry_a.get())
-    for _ in range(4):
-        t.forward(a)
-        t.left(90)
-    t.hideturtle()
 
 # draw on canvas
 def draw_shape():
     selected_shape = shape_var.get()
     if selected_shape == "circle":
-        circle()
+        figureFunc.circle()
     elif selected_shape == "cube":
-        cube()
+        figureFunc.cube()
 
 # func: clear canvas
 def clear_canvas():

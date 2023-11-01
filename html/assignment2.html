@@ -20,30 +20,45 @@
   padding-right: 4em;
 }
 
+
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #EEEEEE;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ccc;
-    position: fixed;
-    top: 0;
-    width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #EEEEEE;
+  padding: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
- 
+
 li {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: inline-block;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 20px 100px;
+  text-decoration: none; 
+  font-size: 15px;
+  font-weight: bold;
+}
+
+li:hover {
+  background-color: #ccc;
+}
+
+li {
+    border-right: 1px solid #bbb;
 }
  
-li:hover {
-    background-color: #ccc;
+li:last-child {
+    border-right: none;
 }
 
 table {
@@ -54,7 +69,7 @@ table {
     .right-side {
       flex: 2;
       padding: 10px;
-      padding-top: 55px;
+      padding-top: 70px;
     }
 
     h3 {
@@ -78,13 +93,20 @@ table {
     }
 
     .img {
-      margin-left: -15px;
-      margin-right: -15px;
+      margin-left: 25px;
+      margin-right: -25px;
     }
 
     .img_title {
       justify-content: center;
       display: flex;
+    }
+
+    .jump {
+      display: block;
+      height: 60px;
+      margin-top: -60px;
+      visibility: hidden;
     }
   </style>
 </head>
@@ -94,13 +116,15 @@ table {
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#class_timetable">Class Timetable</a></li>
-    <li><a href="#lab_imetable">Lab Timetable</a></li>
+    <li><a href="#lab_timetable">Lab Timetable</a></li>
     <li><a href="#home_photo">Home Photo</a></li>
     <li><a href="#other_photo">Other Photo</a></li>
   </ul>
 </div>
+
   <div class="right-side">
-    <h3><a id=home>Home</a></h3>
+    <div class="jump" id="home"></div>
+    <h3>Home</a></h3>
     <div style="display: flex;">
       <p class="intro-text">
        <a href="https://www.ucc.ie/en/"> <img class="ucc-logo" src="https://www.ucc.ie/en/media/2017siteassets/images/ucc_logo_irish.svg" alt="ucc logo" width="304" height="228"> </a>
@@ -109,7 +133,9 @@ table {
 
       </p>
     </div>
-    <h3><a id=class_timetable></a>Class Timetable</h3>
+
+    <div class="jump" id="class_timetable"></div>
+    <h3>Class Timetable</h3>
     <table border="1" cellpadding="10">
       <thead>
         <tr>
@@ -163,10 +189,11 @@ table {
           <td>Lecture</td>
           <td>G18</td>
         </tr>
-
       </tbody>
     </table>
-    <h3><a id=lab_imetable></a>Lab Timetable</h3>
+
+    <div class="jump" id="lab_timetable"></div>
+    <h3></a>Lab Timetable</h3>
     <table border="1" cellpadding="10">
       <thead>
         <tr>
@@ -220,47 +247,48 @@ table {
           <td>Lab</td>
           <td>Lab1.15</td>
         </tr>
-
       </tbody>
     </table>
-    <h3><a id=home_photo></a>Home Photo</h3>
+
+    <div class="jump" id="home_photo"></div>
+    <h3>Home Photo</h3>
     <div class="row">
       <figure>
-      <img src="./images/zijincheng.jpg"  alt="zijincheng" width="304" height="228" class="img">
-      <figcaption class="img_title">zijincheng</figcaption>
+      <img src="./images/zijincheng.jpg"  alt="the Forbidden City" width="304" height="228" class="img">
+      <h4><figcaption class="img_title">the Forbidden City</figcaption></h4>
       </figure>
       <figure>
-      <img src="./images/tiananmen.jpg"  alt="tiananmen" width="304" height="228" class="img">
-      <figcaption class="img_title">tiananmen</figcaption>
+      <img src="./images/tiananmen.jpg"  alt="Tiananmen Gate" width="304" height="228" class="img">
+      <h4><figcaption class="img_title">Tiananmen Gate</figcaption></h4>
       </figure>
       <figure>
-      <img src="./images/tiananmen (2).jpg"  alt="tiananmen (2)" width="304" height="228" class="img">
-      <figcaption class="img_title">tiananmen (2)</figcaption>
+      <img src="./images/tiananmen (2).jpg"  alt="Tiananmen Square" width="304" height="228" class="img">
+      <h4><figcaption class="img_title">Tiananmen Square</figcaption></h4>
       </figure>
       <figure>
-      <img src="./images/tiantan.jpg"  alt="tiantan" width="304" height="228" class="img">
-      <figcaption class="img_title">tiantan</figcaption>
+      <img src="./images/tiantan.jpg"  alt="Temple of Heaven " width="304" height="228" class="img">
+      <h4><figcaption class="img_title">Temple of Heaven </figcaption></h4>
       </figure>
     </div>
 
-
-    <h3><a id=other_photo></a>Other Photo</h3>
+    <div class="jump" id="other_photo"></div>
+    <h3>Other Photo</h3>
     <div class="row">
       <figure>
       <img src="./images/cat.jpg"  alt="cat" width="304" height="228" class="img">
-      <figcaption class="img_title">cat</figcaption>
+      <h4><figcaption class="img_title">cat</figcaption></h4>
       </figure>
       <figure>
-      <img src="./images/chengbao.jpg" alt="chengbao" width="304" height="228" class="img">
-      <figcaption class="img_title">chengbao</figcaption>
+      <img src="./images/chengbao.jpg" alt="French" width="304" height="228" class="img">
+      <h4><figcaption class="img_title">French</figcaption></h4>
       </figure>
       <figure>
-      <img src="./images/OIP.jpg" alt="OIP (2)" width="304" height="228" class="img">
-      <figcaption class="img_title">OIP</figcaption>
+      <img src="./images/OIP.jpg" alt="Jerusalem" width="304" height="228" class="img">
+      <h4><figcaption class="img_title">Jerusalem</figcaption></h4>
       </figure>
       <figure>
-      <img src="./images/sea.jpg" alt="sea" width="304" height="228" class="img">
-      <figcaption class="img_title">sea</figcaption>
+      <img src="./images/sea.jpg" alt="Barcelona" width="304" height="228" class="img">
+      <h4><figcaption class="img_title">Barcelona</figcaption></h4>
       </figure>
     </div>
 
