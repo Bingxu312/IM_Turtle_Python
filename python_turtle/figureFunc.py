@@ -1,5 +1,3 @@
-
-
 global is_clearing
 is_clearing = False
 
