@@ -10,46 +10,50 @@ def draw_figure():
 
     selected_figure = figure_var.get()
     if selected_figure == "quadratic tree":
-        figureFunc.tree(int(entry_a.get()), int(entry_b.get()))
+        figureFunc.tree(int(entry_a.get()), int(entry_b.get()), pen)
     elif selected_figure == "d":
-        figureFunc.d(int(entry_a.get()), int(entry_b.get()))
+        figureFunc.d(int(entry_a.get()), int(entry_b.get()), pen)
     elif selected_figure == "fern":
-        figureFunc.f(int(entry_a.get()), int(entry_b.get()))
+        figureFunc.f(int(entry_a.get()), int(entry_b.get()), pen)
     elif selected_figure == "koch":
-        figureFunc.koch(int(entry_a.get()), int(entry_b.get()))
+        figureFunc.koch(int(entry_a.get()), int(entry_b.get()), pen)
     elif selected_figure == "flake":
-        figureFunc.flake(int(entry_a.get()), int(entry_b.get()))
+        figureFunc.flake(int(entry_a.get()), int(entry_b.get()), pen)
     elif selected_figure == "gasket3":
-        figureFunc.gasket3(int(entry_a.get()), int(entry_b.get()))
+        figureFunc.gasket3(int(entry_a.get()), int(entry_b.get()), pen)
     elif selected_figure == "levy_c_curve":
-        figureFunc.levy_c_curve(int(entry_a.get()), int(entry_b.get()))
+        figureFunc.levy_c_curve(int(entry_a.get()), int(entry_b.get()), pen)
     elif selected_figure == "spiral_curve":
-        figureFunc.spiral_curve(int(entry_a.get()), int(entry_b.get()))
+        figureFunc.spiral_curve(int(entry_a.get()), int(entry_b.get()), pen)
     elif selected_figure == "peano_curve":
-        figureFunc.peano_curve(int(entry_a.get()), int(entry_b.get()))
+        figureFunc.peano_curve(int(entry_a.get()), int(entry_b.get()), pen)
     elif selected_figure == "hexagonal_snowflake":
-        figureFunc.hexagonal_snowflake(int(entry_a.get()), int(entry_b.get()))
+        figureFunc.hexagonal_snowflake(int(entry_a.get()), int(entry_b.get()), pen)
 
 # Clear canvas func
 def clear_canvas():
-    print(figureFunc.is_clearing)
     figureFunc.is_clearing = True
     turtle_screen.clear()
     entry_a.delete(0, 'end')
     entry_b.delete(0, 'end')
 
-# Create Turtle Object
-t = turtle.Turtle()
-t.speed(1)
-
 # Create Tkinter Interface
 window = tk.Tk()
 window.title("Figure Operation Board")
+
+pen = turtle.Pen()
+pen.color("red")
+pen.speed(0)
+pen.width(3)
 
 # Init Turtle Canvas
 turtle_screen = turtle.Screen()
 turtle_screen.title("Figure Canvas")
 turtle_screen.setup(800, 800)
+
+# Create Turtle Object
+t = turtle.Turtle()
+t.speed(1)
 
 # Create Figure parameters input field
 Label(window, text="Order:").grid(row=0, column=0, padx=5, pady=5)

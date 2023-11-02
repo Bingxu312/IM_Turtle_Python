@@ -32,6 +32,7 @@ def clear_canvas():
 
 window = tk.Tk()
 window.title("Turtle GUI")
+
 is_clearing = False
 pen = turtle.Pen()
 pen.color("red")
