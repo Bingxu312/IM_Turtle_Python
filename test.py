@@ -1,131 +1,86 @@
-from turtle import *
-from tkinter import *
-from tkinter.ttk import *
+import turtle
+import tkinter as tk
+from tkinter import Label, Entry, Button, OptionMenu
 
-# binary tree
-def tree(n, l):
-    if n == 0 or l < 2:
-        return
-    # endif
-    pen.forward(l)
-    pen.left(45)
-    tree(n - 1, l / 2)
-    pen.right(90)
-    tree(n - 1, l / 2)
-    pen.left(45)
-    pen.backward(l)
-def gasket(n, l):
-    if n == 0 or l < 2:
-        for i in range(3):
-            pen.forward(l)
-            pen.left(120)
-        return
-    gasket(n - 1, l / 2)
-    pen.forward(l)
-    pen.left(120)
+# 创建Tkinter窗口
+window = tk.Tk()
+window.title("Turtle GUI")
 
-    gasket(n - 1, l / 2)
-    pen.forward(l)
-    pen.left(120)
+# 函数：绘制圆形
+def circle():
+    a = int(entry_a.get())
+    b = int(entry_b.get())
+    entry_c.grid_remove()  # 隐藏输入框C
+    t.circle(a)
+    t.hideturtle()
 
-    gasket(n - 1, l / 2)
-    pen.forward(l)
-    pen.left(120)
-def drawF():
-    # get the convert order , length and angle values
-    order  = int(orderEntry.get())
-    length = int(lengthEntry.get())
-    angle = int(angleEntry.get())
-    # get the selection from option menu
-    figureIndex = figureNames.index(figureStr.get())
-    # use the figureIndex to call the selected turtle method
-    if figureIndex == 0:
-        pen.up(); pen.backward(w / 2); pen.down()
-        tree(order, length)
-    elif figureIndex == 1:
-        pen.up(); pen.backward(w / 2); pen.down()
-        gasket(order, length)
+# 函数：绘制方形
+def cube():
+    a = int(entry_a.get())
+    c = int(entry_c.get())
+    entry_c.grid()  # 显示输入框C
+    for _ in range(4):
+        t.forward(a)
+        t.left(90)
+    t.hideturtle()
 
-    # and ect
-def clearF():
-    # clear the entries
-    orderStr.set("")
-    lengthStr.set("")
+# 函数：绘制图形
+def draw_shape():
+    selected_shape = shape_var.get()
+    if selected_shape == "圆形":
+        circle()
+    elif selected_shape == "方形":
+        cube()
 
-# make a turtle pen and setup its features
-pen = Pen()
-pen.color("red")
-pen.speed(0)
-pen.width(3)
+# 函数：清空画布
+def clear_canvas():
+    global is_clearing
+    is_clearing = True
+    turtle_screen.clear()
+    entry_a.delete(0, 'end')
+    entry_b.delete(0, 'end')
+    entry_c.delete(0, 'end')
+    is_clearing = False
 
-# make a screen and setup the bg
-screen = Screen()
-screen.bgcolor("blue")
+# 初始化Turtle画布
+turtle_screen = turtle.Screen()
+turtle_screen.title("Turtle GUI")
+turtle_screen.setup(400, 400)
 
-# make the window
-root = Tk()
-root.title("Turtle Convertor")
-root.geometry("800x800+100+100")
+# 创建Turtle对象
+t = turtle.Turtle()
+t.speed(1)
 
-# make the interface
-titleLabel = Label(root, text = "Turtle Generator")
-titleLabel.grid(row = 0, column = 1, columnspan = 2)
+# 创建标签和输入框
+Label(window, text="A:").grid(row=0, column=0, padx=5, pady=5)
+entry_a = Entry(window)
+entry_a.grid(row=0, column=1, padx=5, pady=5)
 
-# make the canvas
-canvasFrame = LabelFrame(root, text = "Canvas New")
-canvasFrame.grid(row = 1, column = 0, columnspan = 5, rowspan = 5)
-canvas = Canvas(canvasFrame, width = 500, height = 500)
-canvas.pack()
+Label(window, text="B:").grid(row=1, column=0, padx=5, pady=5)
+entry_b = Entry(window)
+entry_b.grid(row=1, column=1, padx=5, pady=5)
 
-# link TurtleScreen with Canvas
-screen = TurtleScreen(canvas)
-screen.bgcolor("black")
-w, h = screen.screensize()
+# 创建C输入框，但初始时是隐藏的
+Label(window, text="C:").grid(row=2, column=0, padx=5, pady=5)
+entry_c = Entry(window)
+entry_c.grid(row=2, column=1, padx=5, pady=5)
+entry_c.grid_remove()  # 隐藏输入框C
 
-# make a turtle pen connected with the screen
-pen = RawTurtle(screen)
-pen.color("white")
-pen.speed(0)
-pen.width(3)
+shapes = ["圆形", "方形"]
+shape_var = tk.StringVar()
+shape_var.set(shapes[0])
 
-# make the control panel
-controlFrame = LabelFrame(root, text="Control Panel")
-controlFrame.grid(row=6, column=0, columnspan=5, rowspan=3)
+Label(window, text="选择图形:").grid(row=3, column=0, padx=5, pady=5)
+shape_menu = OptionMenu(window, shape_var, *shapes)
+shape_menu.grid(row=3, column=1, padx=5, pady=5)
 
-orderLabel = Label(controlFrame, text="Order")
-orderLabel.grid(row=1, column=0)
+draw_button = Button(window, text="绘制", command=draw_shape)
+draw_button.grid(row=4, column=0, padx=5, pady=5)
 
-orderStr = StringVar()
-orderEntry = Entry(controlFrame, textvariable=orderStr)
-orderEntry.grid(row=1, column=1, columnspan=2)
+clear_button = Button(window, text="清空", command=clear_canvas)
+clear_button.grid(row=4, column=1, padx=5, pady=5)
 
-lengthLabel = Label(controlFrame, text="Length")
-lengthLabel.grid(row=2, column=0)
+is_clearing = False
 
-lengthStr = StringVar()
-lengthEntry = Entry(controlFrame, textvariable=lengthStr)
-lengthEntry.grid(row=2, column=1, columnspan=2)
-
-angleLabel = Label(controlFrame, text="Angle")
-angleLabel.grid(row=3, column=0)
-
-angleStr = StringVar()
-angleEntry = Entry(controlFrame, textvariable=angleStr)
-angleEntry.grid(row=3, column=1, columnspan=2)
-
-figureNames = ["tree", "gasket"]
-figureStr = StringVar()
-figureList = OptionMenu(controlFrame, figureStr, figureNames[1], *figureNames)
-figureList.grid(row=4,column=0)
-
-clearButton = Button(controlFrame, text = "clear", command = clearF)
-clearButton.grid(row = 5, column = 0, columnspan = 2)
-
-drawButton = Button(controlFrame, text = "Draw", command = drawF)
-drawButton.grid(row = 5, column = 2, columnspan = 2)
-
-#loop it
-root.mainloop()
-
-
-
+# 启动Tkinter主循环
+window.mainloop()
