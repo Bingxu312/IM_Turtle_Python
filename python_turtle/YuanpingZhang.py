@@ -10,7 +10,6 @@ window.title("Figure Operation Board")
 
 pen = turtle.Pen()
 pen.color("red")
-pen.speed(0)
 pen.width(3)
 
 # Init Turtle Canvas
@@ -20,7 +19,7 @@ turtle_screen.setup(800, 800)
 
 # Create Turtle Object
 t = turtle.Turtle()
-t.speed(1)
+speed = 100000
 
 # Create Figure parameters input field
 Label(window, text="Order:").grid(row=0, column=0, padx=5, pady=5)
@@ -34,7 +33,7 @@ entry_b.insert(0, "")
 entry_b.grid(row=1, column=1, padx=5, pady=5)
 
 # Create Figure select field
-figures = ["quadratic tree", "d", "fern", "koch", "flake", "gasket3", "levy_c_curve", "spiral_curve", "peano_curve", "hexagonal_snowflake"]
+figures = ["quadratic tree", "d", "fern", "koch", "flake", "gasket3", "levy_c_curve", "spiral_curve", "peano_curve", "hexagonal_snowflake", "olimpic_ring"]
 figure_var = tk.StringVar()
 figure_var.set(figures[0])
 
@@ -43,10 +42,10 @@ figure_menu = OptionMenu(window, figure_var, *figures)
 figure_menu.grid(row=3, column=1, padx=5, pady=5)
 
 # Create draw and clear button
-draw_button = Button(window, text="draw", command=lambda: ButtonFunc.draw_figure(figure_var, pen, entry_a, entry_b))
+draw_button = Button(window, text="draw", command=lambda: ButtonFunc.draw_figure(figure_var, pen, speed, entry_a, entry_b))
 draw_button.grid(row=4, column=0, padx=5, pady=5)
 
-clear_button = Button(window, text="clear", command=lambda: ButtonFunc.clear_canvas(turtle_screen, entry_a, entry_b))
+clear_button = Button(window, text="clear", command=lambda: ButtonFunc.clear_canvas(turtle_screen, pen, entry_a, entry_b))
 clear_button.grid(row=4, column=1, padx=5, pady=5)
 
 # Run Tkinter main loop
